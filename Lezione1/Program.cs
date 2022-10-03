@@ -106,6 +106,37 @@ namespace Lezione1
             /*string s;
              * int l = s.Length; da errore a differenza di struct perchè non ha un valore di default*/
 
+            //LISTE implementato come un array 
+            List<int> list = new List<int>(/*possibile inzializzazione per ottimizzare es. 5*/);
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            list.Add(5);
+            list.Remove(4);
+
+            //approccio procedurale
+            foreach(int i in list)
+            {
+                Console.WriteLine(i); //stampa tutti gli elementi della lista
+                //non usare list.remove(i) nei foreach ma solo nel for: risultati imprevisti e errore a runtime
+            }
+
+            //approccio funzionale
+            list.ForEach(x => Console.WriteLine(x)); //fanno esattamente la stessa cosa (lambda o arrow function)
+            //notare che ForEach ha come parametro un "Action"
+
+            //LinkedList è composto da valore e puntatore al prossimo elemento (spesso non si usa perchè occupa memoria ed è inefficente)
+            LinkedList<int> list2 = new LinkedList<int>( );
+            list2.AddLast(1);
+            list2.AddFirst(2);
+            list2.AddLast(3);
+            list2.AddLast(4);
+            list2.Remove(4);
+
+            //dipende dal caso d'uso per ottimizzazione e prestazioni. Si parte come base dalla List e se diventa lento o
+            //inefficente si passa ad un altro tipo di lista
+
 
 
             return 0;
